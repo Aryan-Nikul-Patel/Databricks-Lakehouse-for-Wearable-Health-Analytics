@@ -104,3 +104,28 @@ Before diving into the Lakehouse, we need to satisfy two **operational** require
 With the operational side covered, we can now focus on designing our Lakehouse to process **all five** raw data sources for analytics.  
 
 
+---
+
+## Storage Layer Design
+
+We’ll use **Azure Data Lake Storage Gen2** as the foundation for our Lakehouse. All data and metadata live in ADLS Gen2, giving us:
+
+- **Spark & Delta Lake compatibility**  
+- **Cost‑effective, pay‑as‑you‑grow** blob storage  
+- **Fine‑grained access controls** via Azure RBAC  
+- **Encryption at rest & in transit**  
+- **Redundancy & cross‑region replication** for high availability  
+- **Filesystem‑like directory structure** over blob storage  
+
+---
+
+### Container & Directory Layout
+
+We provision **three** ADLS Gen2 containers per environment (Dev / Test / Prod), plus one shared Metastore container:
+
+| Container Name           | Purpose                                                       |
+|--------------------------|---------------------------------------------------------------|
+| `esbit-metastore-root`   | Unity Catalog / Hive Metastore metadata (shared across envs)  |
+| `esbit-managed-dev`      | Managed Delta tables for Dev (Bronze / Silver / Gold layers)  |
+| `esbit-unmanaged-dev`    | External/raw data & streaming checkpoints for Dev             |
+
