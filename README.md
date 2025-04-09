@@ -63,4 +63,44 @@ Implement audit trails, access controls, security, and data lineage tracking thr
 
 ---
 
-*More details and implementation steps to follow as additional project information is provided.*  
+## Solution Design
+
+Before diving into the Lakehouse, we need to satisfy two **operational** requirements that keep the upstream systems working.  These are **not** part of the analytical pipeline and will be handled by a separate team.  We decouple them from the Medallion‑architecture Lakehouse to keep operational and analytical workloads isolated.
+
+### 1. User Profile CDC → Cloud Database
+
+- **Source:** Kafka topic `user_profile_cdc`  
+- **Why:** The mobile app reads profile data from the cloud database, not Kafka  
+- **What to do:**  
+  1. Build a small micro‑service (or Spark Structured Streaming job) that subscribes to `user_profile_cdc`.  
+  2. On **create** or **update** events, upsert the JSON payload into the user profile table in the cloud database.  
+  3. On **delete** events, remove or deactivate the user record in the database.  
+
+### 2. Gym Login/Logout → Operational Database
+
+- **Source:** Kafka topic `facility_access`  
+- **Why:** The gym’s front‑desk application needs a consolidated view of who’s inside and when they left  
+- **What to do:**  
+  1. Consume **login** and **logout** events from `facility_access`.  
+  2. Match each login with its corresponding logout (e.g., by `user_id` + session window).  
+  3. Emit a single record per visit:  
+     ```json
+     {
+       "user_id": "...",
+       "facility_id": "...",
+       "login_timestamp": "...",
+       "logout_timestamp": "..."
+     }
+     ```  
+  4. Upsert these visit records into the gym operations database.
+
+---
+
+### Decoupling Operational vs. Analytical Workloads
+
+- **Operational pipelines** (steps 1 & 2 above) run independently and keep day‑to‑day applications functioning.  
+- **Analytical Lakehouse** (Bronze → Silver → Gold) only consumes the raw Kafka topics and the device registration database—**not** the operational databases.  
+
+With the operational side covered, we can now focus on designing our Lakehouse to process **all five** raw data sources for analytics.  
+
+
