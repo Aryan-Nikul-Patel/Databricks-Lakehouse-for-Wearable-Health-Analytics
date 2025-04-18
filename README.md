@@ -48,7 +48,7 @@ A company manufactures a wrist‑watch style wearable that continuously streams 
 
 ## Architecture
 
-<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch2.png?raw=true" width="300"/>
+<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch2.png?raw=true" width="400"/>
 
 
 ### Medallion Layers
@@ -71,7 +71,7 @@ Implement audit trails, access controls, security, and data lineage tracking thr
 
 ## Solution Design
 
-<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch4.png?raw=true" width="400"/>
+<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch4.png?raw=true" width="600"/>
 
 Before diving into the Lakehouse, we need to satisfy two **operational** requirements that keep the upstream systems working.  These are **not** part of the analytical pipeline and will be handled by a separate team.  We decouple them from the Medallion‑architecture Lakehouse to keep operational and analytical workloads isolated.
 
@@ -129,7 +129,7 @@ We’ll use **Azure Data Lake Storage Gen2** as the foundation for our Lakehouse
 
 ### Container & Directory Layout
 
-<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch5.png?raw=true" width="250"/>
+<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch5.png?raw=true" width="300"/>
 
 We provision **three** ADLS Gen2 containers per environment (Dev / Test / Prod), plus one shared Metastore container:
 
