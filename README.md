@@ -6,7 +6,8 @@ A company manufactures a wrist‑watch style wearable that continuously streams 
 
 ## Data Sources
 
-![](https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch.png)
+<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch.png?raw=true" width="400"/>
+
 
 1. **Device Registration**  
    - Captured at retail sale  
