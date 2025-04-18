@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Your company manufactures a wrist‑watch style wearable that continuously streams health parameters to your servers. This project covers designing and building a data engineering system to ingest, process, and serve that data.
+A company manufactures a wrist‑watch style wearable that continuously streams health parameters to your servers. This project covers designing and building a data engineering system to ingest, process, and serve that data.
 
 ## Data Sources
 
