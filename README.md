@@ -71,7 +71,7 @@ Implement audit trails, access controls, security, and data lineage tracking thr
 
 ## Solution Design
 
-<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch4.png?raw=true" width="300"/>
+<img src="https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch4.png?raw=true" width="400"/>
 
 Before diving into the Lakehouse, we need to satisfy two **operational** requirements that keep the upstream systems working.  These are **not** part of the analytical pipeline and will be handled by a separate team.  We decouple them from the Medallion‑architecture Lakehouse to keep operational and analytical workloads isolated.
 
