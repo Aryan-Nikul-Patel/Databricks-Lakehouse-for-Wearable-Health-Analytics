@@ -47,7 +47,7 @@ A company manufactures a wrist‑watch style wearable that continuously streams 
 
 ## Architecture
 
-![]([URL_or_relative_path_to_image](https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch2.png))
+![](https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch2.png)
 
 ### Medallion Layers
 
