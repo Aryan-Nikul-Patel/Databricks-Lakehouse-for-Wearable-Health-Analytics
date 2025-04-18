@@ -127,7 +127,7 @@ We’ll use **Azure Data Lake Storage Gen2** as the foundation for our Lakehouse
 
 ### Container & Directory Layout
 
-![]([URL_or_relative_path_to_image](https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch5.png))
+![Alt Text](https://github.com/Aryan-Nikul-Patel/Databricks-Lakehouse-for-Wearable-Health-Analytics/blob/main/resource/arch5.png)
 
 We provision **three** ADLS Gen2 containers per environment (Dev / Test / Prod), plus one shared Metastore container:
 
